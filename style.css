@@ -1,0 +1,14 @@
+#flexboxContainer{
+    display:flex;
+    justify-content: center;
+    align-items: stretch;
+    height: 10em;
+    padding: 2em;
+    margin-top: 25%;
+}
+
+.gameElements{
+    margin: 1em;
+    padding: 5%;
+    border: 3px solid black;
+}
