@@ -1,3 +1,22 @@
+const results = document.querySelector('#resultsContainer');
+
+const rockButton = document.querySelector('#rockContainer');
+rockButton.addEventListener('click', e => {
+    results.textContent = round('rock',computerPlay());
+})
+
+const paperButton = document.querySelector('#paperContainer');
+paperButton.addEventListener('click', e => {
+    results.textContent = round('paper',computerPlay());
+})
+
+const scissorsButton = document.querySelector('#scissorsContainer');
+scissorsButton.addEventListener('click', e => {
+    results.textContent = round('scissors',computerPlay());
+})
+
+
+
 function computerPlay(){
     switch (Math.floor(Math.random()*3)){
         case 0:
@@ -37,6 +56,8 @@ function round(playerSelection, computerSelection){
     }
 }
 
+
+/* Function to play 5 games. */
 function game(){
     let i;
     let playerPlay;
