@@ -21,7 +21,15 @@
     border: 1.5px solid black;
 }
 
-#resultsScore{
+#resultsScoreContainer{
+    display:flex;
+}
+
+#resultsScoreText, #playsText{
+    margin-right: 0.5em;
+}
+
+#gameContainer{
     border: 1.5px solid black;
 }
 
@@ -46,4 +54,8 @@
 
 #resultsTitle{
     text-align: center;
+}
+
+#playsContainer{
+    display:flex;
 }

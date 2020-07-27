@@ -1,33 +1,62 @@
+let plays = 0;
+let playerWins = 0;
+
 const results = document.querySelector('#gameResultsContainer');
+
+const computerResults = document.querySelector('#computerReultsContainer');
 
 const rockButton = document.querySelector('#rockContainer');
 rockButton.addEventListener('click', e => {
     results.textContent = round('rock',computerPlay());
+    
+    plays = scoreUpdate(results,plays);
+    console.log(playerWins);
 })
 
 const paperButton = document.querySelector('#paperContainer');
 paperButton.addEventListener('click', e => {
     results.textContent = round('paper',computerPlay());
+    
+    plays = scoreUpdate(results,plays);
 })
 
 const scissorsButton = document.querySelector('#scissorsContainer');
 scissorsButton.addEventListener('click', e => {
     results.textContent = round('scissors',computerPlay());
+    
+    plays = scoreUpdate(results,plays);
 })
 
-const computerResults = document.querySelector('#computerReultsContainer');
+const resultsScore = document.querySelector('#resultsScoreNumber');
+const playsNumber = document.querySelector('#playsNumber');
 
-function computerOutput(play){
-    switch (play){
-        case 'Rock': 
-            computerResults.textContent = "Computer played Rock";
-            break;
-        case 'Paper':
-            computerResults.textContent = "Computer played Paper";
-        default:
-            computerResults.textContent = "Computer played Scissors";
-    }
+
+function scoreUpdate(results,plays){
     
+    if(results.textContent.charAt(4) == "W"){
+        playerWins++;
+        resultsScore.textContent = playerWins;
+        plays++
+    } else if (results.textContent.charAt(4) == "L"){
+        plays++;
+    }
+    playsNumber.textContent = plays;
+
+    if(plays<5){
+        return plays;
+    }else if (playerWins >2){
+        alert("You win!");
+        playerWins = 0;
+        resultsScore.textContent = 0;
+        playsNumber.textContent = 0;
+        return 0;
+    } else{
+        alert("You lose!")
+        playerWins = 0;
+        resultsScore.textContent = 0;
+        playsNumber.textContent = 0;
+        return 0;
+    }
 }
 
 function computerPlay(){
@@ -44,6 +73,19 @@ function computerPlay(){
             computerOutput("Scissors");
             return "Scissors";
     }
+}
+
+function computerOutput(play){
+    switch (play){
+        case 'Rock': 
+            computerResults.textContent = "Computer played Rock";
+            break;
+        case 'Paper':
+            computerResults.textContent = "Computer played Paper";
+        default:
+            computerResults.textContent = "Computer played Scissors";
+    }
+    
 }
 
 function round(playerSelection, computerSelection){
@@ -63,32 +105,8 @@ function round(playerSelection, computerSelection){
     } else if (playerStandard == "paper" && computerStandard == "rock"){
         return "You Win! Paper beats Rock";
     } else if (playerStandard == "paper" && computerStandard == "scissors"){
-        return "You Win! Scissors beats Paper";
+        return "You Lose! Scissors beats Paper";
     } else{
         return "Stop fooling around.";
     }
-}
-
-
-/* Function to play 5 games. */
-function game(){
-    let i;
-    let playerPlay;
-    let result;
-    let playerWin = 0;
-
-    for (i=0; i<5; i++){
-        playerPlay = prompt("Rock, Paper, Scissors... Shoot!");
-        
-        result = round(playerPlay, computerPlay());
-        
-        playerWin += (result.charAt(4) == "W" ? 1 : 0);
-
-        console.log(result);
-    }
-    console.log(`You won ${playerWin} times.`)
-}
-
-function winner(str){
-    return (str.charAt(4) == "W" ? 1 : 0);
 }
