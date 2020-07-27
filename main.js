@@ -15,21 +15,34 @@ scissorsButton.addEventListener('click', e => {
     results.textContent = round('scissors',computerPlay());
 })
 
+const computerResults = document.querySelector('#computerReultsContainer');
 
+function computerOutput(play){
+    switch (play){
+        case 'Rock': 
+            computerResults.textContent = "Computer played Rock";
+            break;
+        case 'Paper':
+            computerResults.textContent = "Computer played Paper";
+        default:
+            computerResults.textContent = "Computer played Scissors";
+    }
+    
+}
 
 function computerPlay(){
     switch (Math.floor(Math.random()*3)){
         case 0:
-        console.log("Computer played Rock");
-        return "Rock";
-        break;
+            computerOutput("Rock");
+            return "Rock";
+            break;
         case 1:
-        console.log("Computer played Paper");
-        return "Paper";
-        break;
+            computerOutput("Paper");
+            return "Paper";
+            break;
         default:
-        console.log("Computer played Scissors");
-        return "Scissors";
+            computerOutput("Scissors");
+            return "Scissors";
     }
 }
 
