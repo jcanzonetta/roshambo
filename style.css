@@ -1,10 +1,32 @@
+#pageTitle{
+    text-align:center;
+}
+
 #playContainer{
     display:flex;
     justify-content: center;
     align-items: stretch;
     height: 10em;
     padding: 2em;
-    margin-top: 25%;
+    margin-top: 0;
+}
+
+#resultsContainer{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#resultsText{
+    border: 1.5px solid black;
+}
+
+#resultsScore{
+    border: 1.5px solid black;
+}
+
+.gameResultsText{
+    text-align: left;
 }
 
 .gameElements{
@@ -14,5 +36,14 @@
 }
 
 .gameResults{
+    text-align: center;
+}
+
+.resultsBoxes{
+    padding: 1em 2em;
+    margin: 1em;
+}
+
+#resultsTitle{
     text-align: center;
 }

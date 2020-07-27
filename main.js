@@ -1,4 +1,4 @@
-const results = document.querySelector('#resultsContainer');
+const results = document.querySelector('#gameResultsContainer');
 
 const rockButton = document.querySelector('#rockContainer');
 rockButton.addEventListener('click', e => {
